@@ -39,7 +39,7 @@ class GameOver extends Obj {
   
   void checkInput() {
     if (keyPressed) {
-      if (key == ' ' || key == ' ') {
+      if (key == ' ') {
         objects.clear();
         openGame();
       }
