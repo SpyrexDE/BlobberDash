@@ -3,6 +3,7 @@ class GameManager extends Obj {
   public GameManager() {
     player = new Player();
     hb = new HeartBox();
+    sc = new ScoreCount();
     //bb = new BombBox();
     noCursor();
 
