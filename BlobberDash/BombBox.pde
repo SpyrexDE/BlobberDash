@@ -1,6 +1,6 @@
 class BombBox extends UiComponent
 {
-  ArrayList<HeartStick> heartSticks = new ArrayList<HeartStick>();
+  ArrayList<BombStick> bombSticks = new ArrayList<BombStick>();
   int spaceing = 15;
   int yPos = 100;
 
@@ -10,17 +10,17 @@ class BombBox extends UiComponent
     shaderLevel = 1;
     for (int lives = player.lives; lives > 0; lives--) {
       lastXPos += spaceing;
-      HeartStick ht = new HeartStick(new PVector(lastXPos + 5, yPos + 15), color(176, 255, 28));
-      heartSticks.add(ht);
+      BombStick bs = new BombStick(new PVector(lastXPos + 5, yPos + 15), color(176, 255, 28));
+      bombSticks.add(bs);
     }
   }
 
 
-  public void onPlayerHealthChange(String type, int amount) {
+  public void onPlayerBombsChange(String type, int amount) {
     if (type == "damage") {
       for (int i = amount; i > 0; i--) {
         try{
-          heartSticks.get(heartSticks.size() - 1).damage();
+          bombSticks.get(bombSticks.size() - 1).damage();
         }catch(Exception ignore){}
       }
     }
@@ -76,7 +76,7 @@ class BombStick extends UiComponent
   }
 
   void damage() {
-    hb.heartSticks.remove(this); 
+    bb.bombSticks.remove(this); 
     hitted = true;
   }
 }

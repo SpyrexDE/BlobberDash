@@ -4,7 +4,7 @@ class GameManager extends Obj {
     player = new Player();
     hb = new HeartBox();
     sc = new ScoreCount();
-    //bb = new BombBox();
+    bb = new BombBox();
     noCursor();
 
     gState = GameState.INGAME;
